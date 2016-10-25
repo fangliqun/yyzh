@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cqupt.dao.NewsDisplayMapper" >
+  <resultMap id="BaseResultMap" type="cqupt.domain.NewsDisplay" >
+    <result column="s" property="s" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="cqupt.domain.NewsDisplay" >
+    insert into newsdisplay (s)
+    values (#{s,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cqupt.domain.NewsDisplay" >
+    insert into newsdisplay
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="s != null" >
+        s,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="s != null" >
+        #{s,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

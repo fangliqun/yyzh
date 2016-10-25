@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cqupt.dao.SpCaseMapper" >
+  <resultMap id="BaseResultMap" type="cqupt.domain.SpCase" >
+    <id column="caseid" property="caseid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="subname" property="subname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="statisfied" property="statisfied" jdbcType="INTEGER" />
+    <result column="background" property="background" jdbcType="VARCHAR" />
+    <result column="banner" property="banner" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    caseid, name, subname, price, time, location, statisfied, background, banner
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from spcase
+    where caseid = #{caseid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from spcase
+    where caseid = #{caseid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cqupt.domain.SpCase" >
+    insert into spcase (caseid, name, subname, 
+      price, time, location, 
+      statisfied, background, banner
+      )
+    values (#{caseid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{subname,jdbcType=VARCHAR}, 
+      #{price,jdbcType=REAL}, #{time,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
+      #{statisfied,jdbcType=INTEGER}, #{background,jdbcType=VARCHAR}, #{banner,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cqupt.domain.SpCase" >
+    insert into spcase
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="caseid != null" >
+        caseid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="subname != null" >
+        subname,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="statisfied != null" >
+        statisfied,
+      </if>
+      <if test="background != null" >
+        background,
+      </if>
+      <if test="banner != null" >
+        banner,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="caseid != null" >
+        #{caseid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="subname != null" >
+        #{subname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="statisfied != null" >
+        #{statisfied,jdbcType=INTEGER},
+      </if>
+      <if test="background != null" >
+        #{background,jdbcType=VARCHAR},
+      </if>
+      <if test="banner != null" >
+        #{banner,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cqupt.domain.SpCase" >
+    update spcase
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="subname != null" >
+        subname = #{subname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="statisfied != null" >
+        statisfied = #{statisfied,jdbcType=INTEGER},
+      </if>
+      <if test="background != null" >
+        background = #{background,jdbcType=VARCHAR},
+      </if>
+      <if test="banner != null" >
+        banner = #{banner,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where caseid = #{caseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cqupt.domain.SpCase" >
+    update spcase
+    set name = #{name,jdbcType=VARCHAR},
+      subname = #{subname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL},
+      time = #{time,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      statisfied = #{statisfied,jdbcType=INTEGER},
+      background = #{background,jdbcType=VARCHAR},
+      banner = #{banner,jdbcType=VARCHAR}
+    where caseid = #{caseid,jdbcType=INTEGER}
+  </update>
+</mapper>
