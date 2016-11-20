@@ -16,16 +16,25 @@
     from user
     where userid = #{userid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  
+  <select id="selectAllUser" resultType="cqupt.domain.User"  >
+    select userid,username,post from user
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user
-    where userid = #{userid,jdbcType=INTEGER}
+    where username = #{username,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="cqupt.domain.User" >
-    insert into user (userid, username, password,manager
+    insert into user (userid, username, password,manager,post
       )
-    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},#{manager,jdbcType=INTEGER}
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+    #{password,jdbcType=VARCHAR},#{manager,jdbcType=INTEGER},#{post,jdbcType=VARCHAR}
       )
   </insert>
+  
+  <select id="login" parameterType="cqupt.domain.User" resultType="cqupt.domain.User">
+  select * from user where username=#{username} and password=#{password}
+   </select>
   <insert id="insertSelective" parameterType="cqupt.domain.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >

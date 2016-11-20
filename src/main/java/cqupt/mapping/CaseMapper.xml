@@ -21,16 +21,31 @@
   	select * from `case` limit #{page},12
   </select>
   
+  <delete id="delete"  parameterType="int">
+  delete  from `case` where id=#{id}
+  </delete>
+  
+  <select id="selectAllCaseName" resultType="java.lang.String" >
+  	select title from `case` 
+  </select>
+  
+   <select id="selectSbContentById" resultType="java.lang.String" parameterType="java.lang.Integer" >
+  	select sbcontent from `case` where id=#{id}
+  </select>
+  
+  
+  <select id="selectCaseInfo" resultType="cqupt.domain.Case" parameterType="java.lang.String">
+  	select id,time,username from `case` where title=#{title,jdbcType=VARCHAR}
+  </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from `case`
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cqupt.domain.Case" >
-    insert into `case` (id, name, icon, 
-      class)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
-      #{class,jdbcType=INTEGER})
+    insert into `case` (content,caseclass,username,time,title)
+    values (#{content}, #{caseclass,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
+    #{time,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cqupt.domain.Case" >
     insert into `case`
@@ -63,17 +78,29 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cqupt.domain.Case" >
+  <update id="update" parameterType="cqupt.domain.Case" >
     update `case`
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="icon != null" >
-        icon = #{icon,jdbcType=VARCHAR},
+      <if test="caseclass != null" >
+        caseclass = #{caseclass,jdbcType=INTEGER},
       </if>
-      <if test="class != null" >
-        class = #{class,jdbcType=INTEGER},
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sbcontent != null" >
+        sbcontent = #{sbcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>	
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+       <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR}
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

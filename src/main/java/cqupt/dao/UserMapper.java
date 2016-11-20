@@ -1,11 +1,17 @@
 package cqupt.dao;
 
+import java.util.List;
+
 import cqupt.domain.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer userid)throws Exception;
+    int deleteByPrimaryKey(String username)throws Exception;
 
-    int insert(User record)throws Exception;
+    int insert(User user)throws Exception;
+    
+    List<User> selectAllUser()throws Exception;
+    
+    User login(User user)throws Exception;
 
     int insertSelective(User record)throws Exception;
 

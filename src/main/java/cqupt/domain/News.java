@@ -5,49 +5,80 @@ public class News {
 
     private int sign;
 
-    private String title;
-
     private String time;
+    
+    private String content;
+    
+    private String sbcontent;
+    
+    private String username;
+    
+    private String title;
+    
+    private String url;
+	public String getUrl() {
+		return url;
+	}
 
-    private String synopsis;
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public int getSign() {
-        return sign;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setSign(int sign) {
-        this.sign = sign;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public int getSign() {
+		return sign;
+	}
 
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
+	public void setSign(int sign) {
+		this.sign = sign;
+	}
 
-    public String getTime() {
-        return time;
-    }
+	public String getTime() {
+		return time;
+	}
 
-    public void setTime(String time) {
-        this.time = time == null ? null : time.trim();
-    }
+	public void setTime(String time) {
+		this.time = time;
+	}
 
-    public String getSynopsis() {
-        return synopsis;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis == null ? null : synopsis.trim();
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getSbcontent() {
+		return sbcontent;
+	}
+
+	public void setSbcontent(String sbcontent) {
+		this.sbcontent = sbcontent;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+    
 }

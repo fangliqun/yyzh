@@ -3,41 +3,84 @@ package cqupt.domain;
 public class Case {
     private Integer id;
 
-    private String name;
-
-    private String icon;
+    private String username;
 
     private Integer caseclass;
+    
+    private String content;
+    
+    private String sbcontent;
+    
+    private String time;
+    
+    private String title;
+    
+    private String url;
 
-    public Integer getId() {
-        return id;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();//this.name = (name == null ? null : name.trim());
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public String getIcon() {
-        return icon;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setIcon(String icon) {
-        this.icon = icon == null ? null : icon.trim();
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getCaseclass() {
-        return caseclass;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setClass(Integer caseclass) {
-        this.caseclass = caseclass;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Integer getCaseclass() {
+		return caseclass;
+	}
+
+	public void setCaseclass(Integer caseclass) {
+		this.caseclass = caseclass;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getSbcontent() {
+		return sbcontent;
+	}
+
+	public void setSbcontent(String sbcontent) {
+		this.sbcontent = sbcontent;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+    
 }
+
+   

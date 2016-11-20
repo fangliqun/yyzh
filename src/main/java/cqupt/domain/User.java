@@ -7,7 +7,17 @@ public class User {
 
     private String password;
     
-    private int  manager;
+    private String post;
+    
+    public String getPost() {
+		return post;
+	}
+
+	public void setPost(String post) {
+		this.post = post;
+	}
+
+	private int  manager;
 
     public Integer getUserid() {
         return userid;
